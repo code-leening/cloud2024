@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: cloud-payment-service
+
+  #====== Spring Cloud Consul for Service Discovery ======
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        #service-name:8001以对应spring-application-name的名字入住到consul中
+        service-name: ${spring.application.name}
+      config:
+        profile-separator: '-' #default value is “,”，we update '-'
+        format: yaml
